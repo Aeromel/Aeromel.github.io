@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MQTT</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style>
+		#table {
+			margin-top: 5%;
+			background-color: lightblue;
+			height: 300px;
+			width: 500px;
+			overflow-y: scroll;
+		}
+	</style>
+</head>
+<body>
+	<div class="jumbotron text-center">
+	 	<h1>MQTT</h1>
+	</div>
+
+	<div class="container">
+		<div class="col-sm-4 bg-primary" style="border-style:solid; border-color:black;">
+			<h3>Broker</h3>
+			<div class="form-group">
+				<label for="address">Address:</label>
+				<input value="ws://broker.hivemq.com:8000/mqtt" type="text" class="form-control input-sm" id="address">
+			</div>
+			<center>
+				<button type="button" class="btn btn-success" id='btnConnect'>Connect</button>
+          		<button type="button" class="btn btn-success" id='btnDisconnect'>Disconnect</button>
+			</center>
+
+			<div class="form-group">
+				<label for="status">Status:</label>
+				<input type="text" class="form-control input-sm" id="status">
+			</div>
+		</div>
+		<div class="col-sm-4 bg-primary" style="margin-top: 2.5%; border-style:solid; border-color:black;">
+			<h3>Broker</h3>
+			  	<div class="form-group">
+			  		<span id="span"></span><br>
+			    	<label for="Subscribe-topic" value="demo">Topic:</label>
+			    	<input type="text" class="form-control input-sm" id="Subscribe-topic">
+			  	</div>
+			  	<center>
+			  		<button type="button" class="btn btn-success" id='btnSubscribe'>Subscribe</button>
+          			<button type="button" class="btn btn-success" id='btnUnsubscribe'>Unsubscribe</button>
+          		</center><br>
+		</div>
+		<div class="col-sm-4 bg-primary" style="border-style:solid; border-color:black;">
+			<h3>Publish</h3>
+			<div class="form-group">
+			    <label for="Publish-topic" value="demo">Topic:</label>
+			    <input type="text" class="form-control input-sm" id="Publish-topic"><br>
+			    <label for="Publish-payload">Payload:</label>
+			    <input type="text" class="form-control input-sm" id="Publish-payload">
+			</div>
+			<center>
+				<button type="button" class="btn btn-success" id='btnPublish'>Publish</button>
+			</center><br>
+		</div>
+	</div>	
+
+	<div class="container" id="table">
+		<table class="table">
+	    <thead>
+	      <tr>
+	        <th>Topic</th>
+	        <th>Payload</th>
+	        <th>Time Stamp</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    </tbody>
+	  </table>
+	</div>
+<script src="mqtt.js"></script>
+<script src="controller.js"></script>
+</body>
+</html>
